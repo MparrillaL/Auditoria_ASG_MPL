@@ -1,17 +1,10 @@
-# 
 
-# 
 
-# Empresa: Florísteria Alondra
-
-# Auditoría ASG y Refactorización Sostenible
-
-## AEE RA6
-
-## Manuel Parrilla Lahoz
 
 # Análisis de Sostenibilidad y Optimización Web  
 ## Floristería Alondra  
+
+## Manuel Parrilla Lahoz
 
 ### Fase 1: Inventario y Dimensión Ambiental (A)  
 
