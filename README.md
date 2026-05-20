@@ -10,88 +10,115 @@
 
 ## Manuel Parrilla Lahoz
 
-# 
+# Análisis de Sostenibilidad y Optimización Web  
+## Floristería Alondra  
 
-## 
+### Fase 1: Inventario y Dimensión Ambiental (A)  
 
-## Fase 1: Inventario y Dimensión Ambiental (A)
+**Medición inicial**  
+La página web de Floristería Alondra genera **4.92 g de CO₂ por visita**. [1]  
 
-Analiza el peso y consumo de la web elegida.
+**Identificación de Bloatware**  
+Aunque el documento HTML inicial carga rápido (30 ms), la página se vuelve pesada debido a la acumulación masiva de recursos secundarios.  
 
-1. **Medición inicial**. Utiliza herramientas gratuitas como *Website Carbon Calculator* o *Lighthouse* (pestaña de rendimiento en Chrome/Edge) para obtener la huella de carbono estimada por visita.  
-   La pagina Web de Florísteria Alondra genera 4.92g de CO2 cada visita. **\[1\]**  
-     
-2. **Identificación de *Bloatware***. Inspecciona la red (*Network*) en las herramientas de desarrollador del navegador. Identifica los 3 recursos más pesados que se descargan al abrir la web (imágenes sin comprimir, vídeos de fondo, librerías JavaScript pesadas, etc.).
+**Causas principales**  
+- **Exceso de archivos multimedia**: múltiples videos en formato `.mp4` alojados directamente en el servidor e imágenes de alta resolución (identificadas como `-scaled.jpg`). [2]  
+- **Bloat de plugins**: Elementor y WooCommerce disparan decenas de peticiones de archivos CSS y JS independientes, fragmentando la descarga.  
+- **Múltiples librerías de iconos**: se descargan tres o más sets de fuentes distintos (FontAwesome, Elementor Icons, Ekiticons, Jkiticon), añadiendo peso innecesario.  
 
-Aunque el documento HTML inicial carga rápido (30 ms), la página se vuelve "pesada" debido a la acumulación masiva de recursos secundarios que el navegador debe descargar tras procesar ese primer archivo.
+**Sugerencias**  
+- Alojar los vídeos en plataformas externas (YouTube o Vimeo) para que el navegador no gestione archivos binarios grandes desde el servidor.  
+- Utilizar un plugin de optimización que combine (concatene) y minifique los archivos CSS y JS, reduciendo el número total de peticiones.  
+- Convertir las imágenes a formato WebP y ajustar sus dimensiones al tamaño real de visualización.  
 
-**Causas Principales:**
+**Análisis: ¿sufre la web de “inflación de software”?**  
+Sí, por varias razones:  
+- **Demasiadas capas**: para mostrar una web sencilla, el navegador tiene que leer cientos de líneas de código de Elementor y WooCommerce que no siempre se usan.  
+- **Repetición absurda**: 4 librerías de iconos distintas; es como llevar cuatro diccionarios en la mochila para buscar una sola palabra.  
+- **Falta de optimización**: los vídeos y fotos van “a lo bruto”; el motor (navegador) sufre innecesariamente.  
 
-* **Exceso de archivos multimedia:** Carga múltiples videos en formato .mp4 directamente desde el servidor y varias imágenes de alta resolución (identificadas como \-scaled.jpg). **\[2\]**  
-* **Bloat de plugins:** Al usar Elementor y WooCommerce, se disparan decenas de peticiones de archivos CSS y JS independientes. Cada plugin añade su propia carga, fragmentando la descarga.  
-* **Múltiples librerías de iconos:** Se descargan tres o más sets de fuentes distintos (FontAwesome, Elementor Icons, Ekiticons, Jkiticon), lo que añade peso innecesario.
+---
 
-**Sugerencias:**
+### Fase 2: Dimensión Social y Equidad (S)  
 
-* **Aloja los videos en plataformas externas** (YouTube o Vimeo) para que el navegador no tenga que gestionar archivos binarios tan grandes desde tu servidor.  
-* **Utiliza un plugin de optimización** para combinar (concatenar) y minificar los archivos CSS y JS, reduciendo el número total de peticiones.  
-* **Convierte las imágenes a formato WebP** y asegúrate de que sus dimensiones coincidan con el tamaño en el que se muestran realmente.
+**Test de accesibilidad**  
+He pasado la página por WAVE y ha obtenido un **9/10**. No tiene errores graves, solo algunos avisos (faltan etiquetas `label` bien colocadas o algún contraste justito). Para llegar a 10 habría que revisar esos warnings y asegurar que todo el mundo, incluso con lectores de pantalla o sin ratón, pueda usarla sin problemas. [3]  
 
+**Barreras identificadas**  
+A pesar de la buena puntuación, existen dos problemas relevantes:  
 
-  
+1. **Contraste insuficiente**  
+   Hay dos elementos cuyo color de fondo y color de texto no tienen suficiente diferencia de brillo. La relación de contraste es inferior a **4.5:1** para texto normal. Esto provoca que personas con baja visión, cataratas, glaucoma o daltonismo no puedan leer el texto con claridad; el texto se “funde” con el fondo.  
 
+2. **Vídeos/audio sin alternativas accesibles**  
+   La web incluye 12 elementos de vídeo o audio. WAVE advierte que no puede verificar si son accesibles. Si alguno contiene información relevante (como el proceso de pedido o la descripción de un ramo), una persona sorda no podrá acceder a ese contenido sin subtítulos. Supone una barrera grave para la comunicación.  
 
-3. **Análisis**. ¿Crees que la web sufre de "inflación de software"? Justifica tu respuesta.
+---
 
-Si, por varias razones:
+### Fase 3: Dimensión de Gobernanza y Ética (G)  
 
-* **Demasiadas capas:** Para mostrar una web sencilla, el navegador tiene que leer cientos de líneas de código de Elementor y WooCommerce que no siempre se usan.  
-* **Repetición absurda:** Tienes 4 librerías de iconos distintas. Es como llevar 4 diccionarios en la mochila para buscar solo una palabra.  
-* **Falta de optimización:** Los vídeos y fotos van "a lo bruto". Es como intentar meter un mueble de IKEA sin montar en un coche pequeño; al final, el motor (el navegador) sufre.
+#### Transparencia y cookies  
+Al analizar la web de Alondra Floristería con la guía de la AEPD sobre cookies, comprobé que **no muestra ningún banner de cookies**, ni siquiera un aviso informativo. Esto incumple la normativa porque el usuario no puede aceptar o rechazar las cookies no esenciales, y el consentimiento tácito por seguir navegando no es válido. La ausencia total de opciones constituye un **patrón oscuro por omisión**. Además, el informe de Lighthouse revela que se cargan scripts de terceros como `trustindex.io` (21,9 KB) y `subventic.com` (11,9 KB) sin ningún control previo, lo que agrava la falta de transparencia. [4][5]  
 
+#### Datos innecesarios  
+Al evaluar si el formulario pedía datos excesivos, apliqué el principio de minimización del RGPD (artículo 5.1.c) y consulté las guías de Termly e iubenda. Al inspeccionar el código HTML con las herramientas de desarrollador y revisar el informe de Lighthouse, comprobé que **no existe ningún formulario de contacto funcional**: no aparecen etiquetas `<form>` ni campos como nombre, email o teléfono.  
 
-## Fase 2: Dimensión Social y Equidad (S)
+Por tanto, la web actualmente **no solicita ningún dato personal**, lo que evita el problema de pedir información innecesaria. Sin embargo, la ausencia de un medio real de contacto también es un problema de usabilidad. Si en el futuro implementaran un formulario, lo correcto sería pedir solo nombre, correo y mensaje, nunca DNI o dirección postal. En resumen, no se puede decir que pida datos excesivos porque directamente no hay formulario, pero esa falta de funcionalidad es igualmente criticable.  
 
-La web debe ser utilizable por todos. Evalúa la accesibilidad (Sostenibilidad Social):
+---
 
-1. **Test de Accesibilidad**. Pasa una herramienta como *WAVE Web Accessibility Evaluation Tool* o el propio *Lighthouse* (pestaña *Accessibility*).  
-   He pasado la página por WAVE y me ha dado un 9\. Eso significa que no tiene errores graves, solo algunos avisillos. Por ejemplo, puede que falte algún label bien puesto o que algún contraste esté justito, pero en general es accesible. Para llegar a 10 tendría que repasar esos warnings y asegurarme de que todo el mundo, incluso con lectores de pantalla o sin ratón, pueda usarla sin problemas. \[3\]  
-     
-     
-     
-     
-     
-2. **Identificación de barreras**. Documenta al menos 2 problemas graves que impidan a personas con diversidad funcional usar la web correctamente (ej. falta de atributos *alt* en imágenes clave, bajo contraste de colores en botones, formularios sin etiquetas).  
-   A pesar de que la página web tiene un 9 en el test de accesibilidad de wave hay 2 errores que todavía habría que corregir:  
-* Hay dos elementos cuyo color de fondo y color de texto no tienen suficiente diferencia de brillo. La relación de contraste es inferior a 4.5:1 para texto normal lo cual provoca que personas con baja visión, cataratas, glaucoma o daltonismo no pueden leer el texto con claridad. Para ellos, el texto se “funde” con el fondo, volviéndose invisible o muy difícil de distinguir. 
+### Fase 4: Propuesta de Refactorización (Green Coding)  
 
+#### Optimización de activos  
+**¿Qué formatos usarías para sustituir las imágenes actuales?**  
 
-* La web incluye 12 elementos de vídeo o audio. WAVE advierte que no puede verificar si son accesibles. Si alguno de ellos contiene información relevante (como el proceso de pedido o la descripción de un ramo), una persona sorda no podrá acceder a ese contenido sin subtítulos. Esto supone una barrera grave para la comunicación 
+Para optimizar las imágenes de la web de Alondra Floristería, usaría **WebP como formato principal** por su excelente compatibilidad (97% de navegadores) y su capacidad de reducir el peso hasta un 30% respecto a JPEG, tal como recomienda el informe de Lighthouse que estima un ahorro de **822 KiB**. Además, implementaría **AVIF como formato de respaldo** para navegadores modernos (compresión hasta un 50% menor que JPEG).  
 
+También generaría múltiples resoluciones con `srcset` para evitar descargar imágenes más grandes de lo necesario, como la imagen de 768×922 píxeles que se muestra en 372×447, desperdiciando ancho de banda. En ningún caso mantendría PNG o JPEG sin comprimir, y solo conservaría PNG para el logotipo si requiere transparencia. Esta estrategia mejoraría drásticamente la velocidad de carga y el **LCP** (Largest Contentful Paint).  
 
-## Fase 3: Dimensión de Gobernanza y Ética (G)
+#### Reducción de peticiones  
+**¿Qué librerías o scripts externos eliminarías o aplazarías?**  
 
-Revisa cómo trata la empresa a sus usuarios y sus datos:
+Para reducir las peticiones y el procesamiento en el cliente, eliminaría o aplazaría varios scripts que el informe de Lighthouse señala como problemáticos:  
 
-1. **Transparencia**. ¿Es fácil rechazar las cookies no esenciales o utilizan "patrones oscuros" (Dark Patterns) para forzar al usuario a aceptarlas?  
-2. **Datos innecesarios**. ¿Pide la web datos personales excesivos en su formulario de contacto o registro?
+- **Eliminaría**  
+  - `jQuery Migrate` (no necesario si los plugins no usan versiones antiguas).  
+  - El script de emojis de WordPress (`wp-emoji-release.min.js`, 22,8 KB), porque los navegadores modernos los renderizan nativamente.  
 
-## Fase 4: Propuesta de Refactorización (Green Coding)
+- **Aplazaría con `defer` o `async`**  
+  - Scripts de terceros como Trustindex (`loader.js`, 21,9 KB).  
+  - Fuentes de Google Fonts (bloquean el renderizado; ahorrarían 1,8 segundos).  
+  - jQuery (87,5 KB) y Swiper (143,7 KB), que tienen mucho código sin usar; se cargarían solo cuando sean necesarios (al hacer scroll o interactuar con carruseles).  
 
-Como desarrollador/a, no basta con encontrar los fallos; debes proponer soluciones. Redacta una propuesta de mejora técnica detallando:
+- **Carga condicional**  
+  - Evaluaría si los scripts de Elementor Pro y WooCommerce se pueden cargar solo en páginas donde realmente se usan.  
 
-* **Optimización de activos**.   
-  * ¿Qué formatos usarías para sustituir las imágenes actuales (ej. WebP, AVIF)?  
-  * ¿Implementarías Lazy Loading?  
-* **Reducción de peticiones**.  
-  * ¿Qué librerías o scripts externos eliminarías o aplazarías para mejorar la eficiencia del código y reducir el procesamiento en el dispositivo del cliente?  
-* **Reflexión sobre la Paradoja de Jevons**.  
-  * Si optimizamos la web y la carga mucho más rápido, podríamos atraer a muchos más usuarios diarios. ¿Cómo evitarías que este éxito anule el ahorro energético conseguido?
+Con estas medidas se reducirían las peticiones innecesarias y se mejoraría el rendimiento general.  
 
-BIBLIOGRAFIA
+#### Reflexión sobre la Paradoja de Jevons  
+**Si optimizamos la web y carga mucho más rápido, podríamos atraer muchos más usuarios diarios. ¿Cómo evitarías que este éxito anule el ahorro energético conseguido?**  
 
-[https://www.websitecarbon.com/website/mariadefatimabeltransalado-es/](https://www.websitecarbon.com/website/mariadefatimabeltransalado-es/)
+Si optimizamos la web de Alondra Floristería y consigue cargar mucho más rápido, es probable que atraigamos a más usuarios diarios. Pero aquí surge la **Paradoja de Jevons**: el éxito comercial podría anular el ahorro energético conseguido, ya que el aumento del tráfico podría disparar el consumo total en servidores y dispositivos.  
 
-[webP files upload larger than the jpg actually is | WordPress.org](https://wordpress.org/support/topic/webp-files-upload-larger-than-the-jpg-actually-is/) 
+Para evitarlo, no basta con optimizar imágenes o aplazar scripts; hay que adoptar una **estrategia de sostenibilidad digital** que incluya:  
+- Medir el consumo energético por visita.  
+- Priorizar funcionalidades esenciales (evitando añadir peso innecesario con cada nuevo plugin o animación).  
+- Configurar auditorías automáticas con Lighthouse que alerten si la web supera un presupuesto de carbono o rendimiento.  
+- Diseño frugal y *mobile‑first* que minimice la transferencia de datos.  
+- Buena política de caché para que los recursos no se descarguen repetidamente.  
 
-[WAVE Report of Alondra Floristería](https://wave.webaim.org/report#/https://alondrafloristeria.com/) 
+Así, el crecimiento de usuarios no se traduce en un aumento desproporcionado del impacto ambiental.  
+
+---
+
+Referencias (formato IEEE)
+
+[1] Website Carbon Calculator, “Carbon estimate for Floristería Alondra,” websitecarbon.com. [En línea]. Disponible en: https://www.websitecarbon.com/ (Consultado: 20 de mayo de 2026).
+
+[2] Google Chrome DevTools, “Network panel analysis for mariadefatimabeltransalado.es,” Chrome Developer Tools, mayo de 2026.
+
+[3] WAVE, “Web Accessibility Evaluation Tool report for mariadefatimabeltransalado.es,” wave.webaim.org. [En línea]. Disponible en: https://wave.webaim.org/ (Consultado: 20 de mayo de 2026).
+
+[4] AEPD, “Guía sobre el uso de las cookies,” Agencia Española de Protección de Datos, 2020. [En línea]. Disponible en: https://www.aepd.es/guias/guia-cookies.pdf
+
+[5] H. Brignull, “Deceptive Patterns (Dark Patterns),” deceptive.design. [En línea]. Disponible en: https://www.deceptive.design/ (Consultado: 20 de mayo de 2026).
