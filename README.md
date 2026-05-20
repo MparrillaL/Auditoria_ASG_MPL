@@ -11,6 +11,10 @@
 **Medición inicial**  
 La página web de Floristería Alondra genera **4.92 g de CO₂ por visita**. [1]  
 
+<img width="458" height="253" alt="image" src="https://github.com/user-attachments/assets/5e3b6b78-5bcb-4b4d-b6f4-aec3c104d6e3" />
+
+
+
 **Identificación de Bloatware**  
 Aunque el documento HTML inicial carga rápido (30 ms), la página se vuelve pesada debido a la acumulación masiva de recursos secundarios.  
 
@@ -36,6 +40,9 @@ Sí, por varias razones:
 
 **Test de accesibilidad**  
 He pasado la página por WAVE y ha obtenido un **9/10**. No tiene errores graves, solo algunos avisos (faltan etiquetas `label` bien colocadas o algún contraste justito). Para llegar a 10 habría que revisar esos warnings y asegurar que todo el mundo, incluso con lectores de pantalla o sin ratón, pueda usarla sin problemas. [3]  
+
+<img width="308" height="151" alt="image" src="https://github.com/user-attachments/assets/037ca5d0-25ca-44a9-8a09-09ccda2a3920" />
+
 
 **Barreras identificadas**  
 A pesar de la buena puntuación, existen dos problemas relevantes:  
@@ -68,6 +75,9 @@ Por tanto, la web actualmente **no solicita ningún dato personal**, lo que evit
 Para optimizar las imágenes de la web de Alondra Floristería, usaría **WebP como formato principal** por su excelente compatibilidad (97% de navegadores) y su capacidad de reducir el peso hasta un 30% respecto a JPEG, tal como recomienda el informe de Lighthouse que estima un ahorro de **822 KiB**. Además, implementaría **AVIF como formato de respaldo** para navegadores modernos (compresión hasta un 50% menor que JPEG).  
 
 También generaría múltiples resoluciones con `srcset` para evitar descargar imágenes más grandes de lo necesario, como la imagen de 768×922 píxeles que se muestra en 372×447, desperdiciando ancho de banda. En ningún caso mantendría PNG o JPEG sin comprimir, y solo conservaría PNG para el logotipo si requiere transparencia. Esta estrategia mejoraría drásticamente la velocidad de carga y el **LCP** (Largest Contentful Paint).  
+
+<img width="396" height="430" alt="image" src="https://github.com/user-attachments/assets/c6e87c49-9a9b-4ec1-a280-eb715d7e8994" />
+
 
 #### Reducción de peticiones  
 **¿Qué librerías o scripts externos eliminarías o aplazarías?**  
