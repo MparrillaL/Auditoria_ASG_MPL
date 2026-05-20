@@ -116,11 +116,11 @@ Así, el crecimiento de usuarios no se traduce en un aumento desproporcionado de
 
 Referencias (formato IEEE)
 
-[1] Website Carbon Calculator, “Carbon estimate for Floristería Alondra,” websitecarbon.com. [En línea]. Disponible en: https://www.websitecarbon.com/ (Consultado: 20 de mayo de 2026).
+[1] Website Carbon Calculator, “Carbon estimate for Floristería Alondra,” websitecarbon.com. [En línea]. Disponible en: https://www.websitecarbon.com/ (Consultado: 13 de mayo de 2026).
 
 [2] Google Chrome DevTools, “Network panel analysis for mariadefatimabeltransalado.es,” Chrome Developer Tools, mayo de 2026.
 
-[3] WAVE, “Web Accessibility Evaluation Tool report for mariadefatimabeltransalado.es,” wave.webaim.org. [En línea]. Disponible en: https://wave.webaim.org/ (Consultado: 20 de mayo de 2026).
+[3] WAVE, “Web Accessibility Evaluation Tool report for mariadefatimabeltransalado.es,” wave.webaim.org. [En línea]. Disponible en: https://wave.webaim.org/ (Consultado: 13 de mayo de 2026).
 
 [4] AEPD, “Guía sobre el uso de las cookies,” Agencia Española de Protección de Datos, 2020. [En línea]. Disponible en: https://www.aepd.es/guias/guia-cookies.pdf
 
