@@ -1,6 +1,6 @@
 # Informe técnico de refactorización web  
 **Alondra Floristería – Sostenibilidad y Accesibilidad**  
-*Alumno DAW – Análisis y corrección de código*
+*Manuel Parrilla Lahoz – Análisis y corrección de código*
 
 ## Resumen de intervención  
 Se ha modificado el código original de la página web para eliminar las barreras de accesibilidad detectadas por WAVE (2 errores de contraste y 3 saltos en la jerarquía de encabezados) y para disminuir su impacto ambiental mediante la optimización de recursos digitales.
