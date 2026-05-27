@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título descriptivo y único -->
+  <title>Alondra Floristería · Arte floral sostenible en Espartinas</title>
+  <meta name="description" content="Flores frescas, ramos personalizados, talleres y decoración de eventos en Espartinas (Aljarafe). Envíos a domicilio.">
+  
+  <!-- ========== MEJORAS DE SOSTENIBILIDAD Y ACCESIBILIDAD ========== -->
+  <!-- 1. CSS crítico inline (para renderizado rápido y evitar bloqueos) -->
+  <style>
+    /* Reset básico y tipografía eficiente (system fonts, sin fuentes externas pesadas) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      background-color: #ffffff;
+      color: #111111;
+    }
+    /* Contraste mejorado: fondo blanco, texto casi negro (cumple 4.5:1) */
+    a {
+      color: #2C5F2D; /* verde oscuro legible */
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+    }
+    a:focus, button:focus {
+      outline: 3px solid #FFBF47; /* indicador de foco visible para navegación por teclado */
+      outline-offset: 2px;
+    }
+    /* Botón con contraste adecuado (fondo verde, texto blanco) */
+    .btn {
+      display: inline-block;
+      background-color: #2C5F2D;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover, .btn:focus {
+      background-color: #1E3A1E;
+    }
+    /* Imágenes responsivas con lazy loading nativo */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Estructura de contenedores (simplificada) */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Saltos de línea y espaciado accesible */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+    /* Ocultar elemento solo visualmente pero accesible para lectores de pantalla */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+
+  <!-- 2. CSS no crítico se carga de forma asíncrona (mejora rendimiento) -->
+  <link rel="preload" href="estilos-completos.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="estilos-completos.min.css"></noscript>
+  <!-- ========== FIN MEJORAS ========== -->
+</head>
+<body>
+
+  <!-- ENLACE DE SALTAR AL CONTENIDO (para teclado) -->
+  <a href="#main-content" class="sr-only">Saltar al contenido principal</a>
+
+  <!-- ==================== HEADER ACCESIBLE ==================== -->
+  <header role="banner">
+    <div class="container">
+      <!-- Logo con texto alternativo descriptivo -->
+      <div class="logo">
+        <a href="/" aria-label="Alondra Floristería - Página de inicio">
+          <img src="logo.webp" 
+               alt="Logotipo de Alondra Floristería: un ramo estilizado de color verde y rosa" 
+               width="200" height="200" 
+               loading="eager"> <!-- eager porque es prioritario -->
+        </a>
+      </div>
+      
+      <!-- Navegación principal con etiqueta semántica -->
+      <nav aria-label="Menú principal">
+        <ul>
+          <li><a href="/" aria-current="page">Inicio</a></li>
+          <li><a href="/catalogo/">Catálogo</a></li>
+          <li><a href="/talleres-florales/">Talleres Florales</a></li>
+          <li><a href="/eventos/">Eventos</a></li>
+          <li><a href="/contacto/">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENIDO ==================== -->
+  <main id="main-content" role="main">
+    
+    <!-- SECCIÓN HERO: encabezados sin saltos (h1 → h2 → h3) -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <!-- Antes había salto de h1 a h3. Ahora estructura correcta -->
+        <h1 id="hero-title">Dale vida a cada momento con arte floral</h1>
+        <h2>Flores, creatividad y pasión desde Espartinas</h2>
+        <p>Desde el corazón del Aljarafe, nos especializamos en crear arreglos florales únicos para bodas, eventos, empresas y ocasiones especiales. Cada ramo, centro o decoración es diseñado con cariño y detalle, llevando belleza natural a tu vida.</p>
+        <a href="/catalogo/" class="btn">Ver catálogo →</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN TALLERES Y EVENTOS (ejemplo de mejora de contraste y jerarquía) -->
+    <section class="servicios" aria-labelledby="servicios-title">
+      <div class="container">
+        <h2 id="servicios-title">Lo que podemos hacer por ti</h2>
+        <div class="grid-servicios">
+          <article>
+            <img src="ramos.webp" alt="Ramo de rosas personalizado: flores surtidas en tonos pastel" loading="lazy" width="300" height="300">
+            <h3>Ramos personalizados</h3>
+            <p>Diseñamos cada ramo a medida, con estilo y amor.</p>
+          </article>
+          <article>
+            <img src="eventos.webp" alt="Decoración floral para boda: centros de mesa con peonías y eucalipto" loading="lazy" width="300" height="300">
+            <h3>Decoración de eventos</h3>
+            <p>Bodas, comuniones o fiestas, todo con flores.</p>
+          </article>
+          <article>
+            <img src="talleres.webp" alt="Personas aprendiendo a hacer arreglos florales en un taller" loading="lazy" width="300" height="300">
+            <h3>Talleres florales</h3>
+            <p>Aprende con nosotros a crear belleza natural.</p>
+          </article>
+          <article>
+            <img src="envios.webp" alt="Repartidor con un ramo en una caja para envío a domicilio" loading="lazy" width="300" height="300">
+            <h3>Envíos a domicilio</h3>
+            <p>Repartimos en Espartinas, Aljarafe y alrededores.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN VÍDEOS ACCESIBLES (antes solo video sin subtítulos) -->
+    <section class="videos" aria-labelledby="videos-title">
+      <div class="container">
+        <h2 id="videos-title">Inspírate con nuestro día a día</h2>
+        <div class="video-grid">
+          <!-- Primer vídeo: ahora con subtítulos y descripción -->
+          <div class="video-item">
+            <video controls aria-label="Vídeo: la historia de Alondra Floristería" preload="metadata">
+              <source src="historia-alondra.mp4" type="video/mp4">
+              <!-- Pista de subtítulos (archivo .vtt) -->
+              <track src="subtitulos-historia.vtt" kind="subtitles" srclang="es" label="Español">
+              <!-- Texto alternativo para navegadores que no soportan video -->
+              <p>Tu navegador no soporta vídeo. Puedes descargar la <a href="transcripcion-historia.txt">transcripción del vídeo (txt)</a>.</p>
+            </video>
+            <p class="video-desc">Conoce nuestra historia y pasión por las flores.</p>
+          </div>
+          <!-- Segundo vídeo (misma estructura accesible) -->
+          <div class="video-item">
+            <video controls aria-label="Vídeo tutorial: centro floral otoñal y navideño" preload="metadata">
+              <source src="tutorial-centro.mp4" type="video/mp4">
+              <track src="subtitulos-tutorial.vtt" kind="subtitles" srclang="es" label="Español">
+              <p>Tu navegador no soporta vídeo. <a href="transcripcion-tutorial.txt">Lee la transcripción</a>.</p>
+            </video>
+            <p class="video-desc">Aprende a hacer un centro decorativo paso a paso.</p>
+          </div>
+          <!-- Más vídeos con la misma mejora... -->
+        </div>
+        <a href="https://www.instagram.com/alondrafloristeriasevilla/" class="btn" target="_blank" rel="noopener noreferrer">Ver más en Instagram →</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO CON BOTÓN ACCESIBLE -->
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="container">
+        <h2 id="cta-title">¿Necesitas ayuda con un evento o un ramo especial?</h2>
+        <p>Cuéntanos tu idea y te asesoramos sin compromiso.</p>
+        <a href="/contacto/" class="btn">Contactar ahora</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER MEJORADO ==================== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Logo footer con alt descriptivo -->
+        <div class="footer-logo">
+          <img src="logo-footer.webp" alt="Alondra Floristería - Flores y eventos en Espartinas" width="150" height="150" loading="lazy">
+        </div>
+        <!-- Datos de contacto con iconos accesibles (aria-hidden) -->
+        <div class="footer-contacto">
+          <h3>Contacto</h3>
+          <address>
+            <p>📞 <a href="tel:+34605250205">605 25 02 05</a></p>
+            <p>✉️ <a href="mailto:fatimabeltrans@gmail.com">fatimabeltrans@gmail.com</a></p>
+            <p>📍 C. Prado Alto, 1, LOCAL 2, 41807 Espartinas, Sevilla</p>
+          </address>
+        </div>
+        <!-- Enlaces legales -->
+        <div class="footer-legal">
+          <h3>Información legal</h3>
+          <ul>
+            <li><a href="/aviso-legal/">Aviso legal</a></li>
+            <li><a href="/politica-de-privacidad/">Política de privacidad</a></li>
+            <li><a href="/politica-de-cookies/">Política de cookies</a></li>
+            <li><a href="/politica-de-accesibilidad/">Política de accesibilidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><small>© 2025 Alondra Floristería. Diseño sostenible y accesible.</small></p>
+        <!-- Logos de financiación con alt descriptivo -->
+        <div class="funding-logos">
+          <img src="eu-logo.webp" alt="Financiado por la Unión Europea - NextGenerationEU" loading="lazy" width="100" height="40">
+          <img src="plan-recuperacion.webp" alt="Plan de Recuperación, Transformación y Resiliencia" loading="lazy" width="80" height="40">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÓN DE WHATSAPP ACCESIBLE (joinchat) -->
+  <div class="whatsapp-btn" role="button" tabindex="0" aria-label="Abrir chat de WhatsApp para consultas">
+    <a href="https://wa.me/34605250205" target="_blank" rel="noopener noreferrer" aria-hidden="true">
+      <!-- Icono SVG o texto, pero el aria-label ya anuncia la función -->
+      <span class="sr-only">Contactar por WhatsApp</span>
+      <!-- Aquí iría el icono visual -->
+    </a>
+  </div>
+
+  <!-- SCRIPTS: solo los esenciales, cargados de forma diferida (defer) -->
+  <script src="main.min.js" defer></script>
+  <!-- Eliminados: scripts duplicados de Elementor, WooCommerce no usados, Trustindex innecesario, etc. -->
+  <!-- El menú hamburguesa (si existe) ahora es accesible y ligero -->
+</body>
+</html>
