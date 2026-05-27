@@ -63,5 +63,5 @@ Las modificaciones aplicadas cumplen con:
 
 ---
 
-> **Conclusión del alumno DAW:**  
+> **Conclusión:**  
 > La refactorización ha logrado una web más inclusiva, rápida y respetuosa con el medio ambiente, superando los objetivos iniciales del proyecto.
